@@ -1,0 +1,14 @@
+
+
+API Token - 
+268ea6b217b589211b481dfd93b9e1d1b038197270b87b8e7538894d29aa73db
+token is need to authorize the person
+
+->random email id generation
+email id :automation_${Date.now()}@open.com
+
+
+
+OAuth 2.0 its more secure ->give 2 things
+//1.generate the token:refresh token /access token  
+Token api:endPoint URL,

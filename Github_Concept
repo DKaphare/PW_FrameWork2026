@@ -1,0 +1,16 @@
+1.git repo in the github.com :get the repo URL
+https://
+2.add the .gitignore file at the root of the project
+
+3.init the project with git:
+git init
+Initialized empty Git repository in C:/Users/HP/OpenCartPWFrameWorkE2E/.git/
+
+4.  add the remote URL
+means in remote site where exacly the respoitry present
+it will make connection with remote repository
+
+5.Check the current status git status
+6. git add . ->other than .gitignore everything will be move to staging area
+7 git commit -m "reason"  ->from staging to Local repo but will not dispalyed in remote site
+8 git push origin master->master branch to remote site

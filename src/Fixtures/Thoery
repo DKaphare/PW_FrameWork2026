@@ -1,0 +1,8 @@
+
+
+
+to run in environment stage
+command-->ENV=stage npx playwright test
+
+if not giving anything nand rn directly efault environment value will be taken
+const ENV=process.env.ENV || "qa"; //here what if ENV value is not assigned at that time QA value will work

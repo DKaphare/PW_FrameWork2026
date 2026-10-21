@@ -1,0 +1,39 @@
+Allure report setup--
+1.Install Allure report
+npm install --save-dev allure-playwright allure-commandline
+
+  "allure-commandline": "^2.46.1",
+    "allure-playwright": "^3.14.0"
+Above 2 things will get added in package.json
+
+2.Update Playwright.config.ts reporter:
+  reporter: [
+    ['list'],
+    ['html',{outputFolder:"reports/html-report",open:'never'}], //never means report will not get open automatically
+    ["allure-playwright",{
+      outputFolder:"allure-results",
+      suitTitle:true,
+    }]
+  ],  
+
+  3.Add script in package.json
+
+    "scripts": {
+
+    "test":"npx playwright test",
+    "test-headed":"npx playwright test -headed",
+    "test:chrome":"npx playwright test --project=chromium",
+    "allure:generate":"npx allure generate allure-results --clean -o allure report",
+    "allure-open":"npx allure open allure-report",
+    "allure-report":"npm run allure:generate && npm run allure:open",
+    "allure-clean":"rm -rf allure-results allure-report"
+
+  },
+
+  4.run test
+
+
+  Reporting Labs
+  To install->npm i -D reporting-labs
+
+  To video and screenshot ->Add component in use 

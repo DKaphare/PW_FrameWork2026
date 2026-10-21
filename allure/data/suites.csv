@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","3321","Title verify Test case","chromium","2026-10-20","passed","2026-10-20","","LoginPageTest.spec.ts","",""
+"","838","Valid Credntials Login App","chromium","2026-10-20","failed","2026-10-20","","LoginPageTest.spec.ts","",""
