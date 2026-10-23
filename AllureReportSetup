@@ -30,10 +30,21 @@ Above 2 things will get added in package.json
 
   },
 
-  4.run test
+  4.npm run test
 
+5.To video and screenshot ->Add component in use 
+6.To run the test case
+>>>npm run test(test we hae mention in Package.josn as npx playwright test)
+>>>npm run allure:report >>to get report 
 
+7.import  * as allure  from "allure-js-commons";
+import { fileURLToPath } from "node:url"
+Need above line to get  await allure.severity("Very Low");
+severity and priority those options
+
+  ****************//Reporting-Labs Report///****************
   Reporting Labs
-  To install->npm i -D reporting-labs
-
-  To video and screenshot ->Add component in use 
+  1.To install->npm i -D reporting-labs 
+  caan check in   "reporting-labs": "^0.6.21"
+  2.Tto create reporting labs config file
+  npx reporting-labs init

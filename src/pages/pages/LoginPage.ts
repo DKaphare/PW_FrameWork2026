@@ -23,13 +23,15 @@ export class LoginPage extends BasePage{
     async gotoLoginPage():Promise<void>
     {
         // await this.page.goto("opencart/index.php?route=account/login") ;
-        await this.page.goto("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
+        //https://naveenautomationlabs.com/
+        await this.page.goto("opencart/index.php?route=account/login");
         //above provided partial url coz for other env the initial domain name will be different
        let URL= await this.page.url();
+       console.log(URL);
        
     }
     async getPageTitle(){
-        await this.page.title(); //public mrthod calling private method called encapsulation 
+       return await this.page.title(); //public mrthod calling private method called encapsulation 
         //e.g getPageTitle using title method
     }
 
@@ -51,8 +53,12 @@ export class LoginPage extends BasePage{
 
     //   return await this.LoginError.visible();
     // }
+    async loginSuccessful(){
 
+    }
     async loginErrorCheck(){
+        let errorText=await this.LoginError.innerText();
+        console.log("Error Text is ",errorText);
         await this.LoginError.isVisible();
     }
 }

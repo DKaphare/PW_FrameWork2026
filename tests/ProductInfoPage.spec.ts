@@ -1,10 +1,10 @@
-import{expect,test} from "../src/pages/Fixtures/pageFixtures";
+import{expect,test} from "../src/Fixtures/pageFixtures";
 import { ProductInfoPage } from "../src/pages/pages/ProductInfoPage";
 
 
 test.beforeEach(async({LP})=>{
     await LP.gotoLoginPage();
-    await LP.doLogin(process.env.U1!,process.env.P1!);
+    await LP.doLoginValid(process.env.U1!,process.env.P1!);
 });
 
 

@@ -1,8 +1,8 @@
-import{expect, test} from '../src/pages/Fixtures/pageFixtures';
+import{expect, test} from "../src/Fixtures/pageFixtures";
 
 test.beforeEach(async({LP})=>{
    await LP.gotoLoginPage();
-   await LP.doLogin(process.env.USERNAME!,process.env.PASSWORD!);
+   await LP.doLoginValid(process.env.USERNAME!,process.env.PASSWORD!);
    
 });
 test('Verify logout link',async({HP})=>{

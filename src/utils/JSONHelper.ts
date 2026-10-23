@@ -1,8 +1,9 @@
-import fs from'fs';
 
-export class JSONHelper{
+import fs from 'fs';
 
-   static readJson(filePath:string){
-     return JSON.parse(fs.readFileSync(filePath,'utf-8')); //convert JS to object
-  }
+export class JSONHelper {
+    static readJson(filePath: string): Record<string, string>[] {
+        const jsonData=fs.readFileSync(filePath,'utf-8');
+        return JSON.parse(jsonData);
+    }
 }
