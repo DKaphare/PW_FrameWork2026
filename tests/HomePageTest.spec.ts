@@ -1,6 +1,6 @@
 import{expect, test} from '@playwright/test';
-import { HomePage } from '../src/pages/HomePage';
-import { LoginPage } from '../src/pages/LoginPage';
+import { HomePage } from "../src/pages/pages/HomePage"
+import { LoginPage } from '../src/pages/pages/LoginPage';
 
 let HP :HomePage;
 let LP:LoginPage;
@@ -8,7 +8,7 @@ let LP:LoginPage;
 test.beforeEach(async({page})=>{
  LP=new LoginPage(page);
     await LP.gotoLoginPage();
-    await LP.doLogin('sharuB@gmail.com','Bekind@1995');
+    await LP.doLoginValid('sharuB@gmail.com','Bekind@1995');
     HP= new HomePage(page);
 })
 test('Verify logout link',async({page})=>{

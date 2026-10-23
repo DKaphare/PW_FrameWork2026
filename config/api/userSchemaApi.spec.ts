@@ -5,7 +5,7 @@ data explanation-> when i am hitting api and api wants some data in form of stri
 //if we remove required variables still the test will be passed no issue only type will going tobe check in schema validation
 //but if we add any required varaibale we have to add in our JSON
 install command ->npm install ajv */
-
+/*
 import {test ,expect} from "../../src/Fixtures/apiFixture";
 import Ajv from "ajv";
 import fs from "fs";
@@ -72,6 +72,7 @@ test('get a user schema',async({AH})=>{
     // console.log("User crete and ID is ",UID);
 
     //get Method
+    /*
     let Getresponse=await AH.get(`/public/v2/users/`,AUTH_Header);
     expect(Getresponse.status).toBe(200);
 

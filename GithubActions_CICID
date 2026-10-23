@@ -1,0 +1,71 @@
+>>  .env.example->`In project creating environment to keep all keys 
+*******************Retries fro CI *********************
+>>playwright .config ->U see CI means CICID tool,alaways the value of CI is true
+CI ? 2:0 mean if CI is true the it will run 2 times if it is false then it will run 0 time
+ retries: process.env.CI ? 2 : 0,
+
+********************Headless Mode For CI *******************
+>>alaways running case in CI CD always run headless mode
+headless:!process.env.CI ? false:true, >> here we are giving not condition so in local machine it will take false value and for CI condiotn it will take true value
+********ideally if condition is true ,after ternary operator whatever is there that will get run and if false next is getting run
+headless:!process.env.CI ? false:true,
+
+*******************Reporting for CI ***********************
+reporter: process.env.CI
+  ?
+   [
+    ['list'],
+    ['html',{outputFolder:"reports/html-report",open:'never'}],
+    ["allure-playwright",{
+      outputFolder:"allure-results",
+      suitTitle:true,
+    }]
+    // ['reporting-labs',reportingLabs]
+
+  ]
+  :
+  [
+    ['list'],
+    ['html',{outputFolder:"reports/html-report",open:'never'}],
+    ["allure-playwright",{
+      outputFolder:"allure-results",
+      suitTitle:true,
+    }]
+    // ['reporting-labs',reportingLabs]
+
+  ],
+  
+here we are keeping same array for bith true and false condition 
+which will make run the report even if in true condition or false
+
+//Refer this format for syntax , keeping colon in between the array (for reporting CI)  
+
+*********************BaseURL for CI**********************
+Here we have written our baseURL in .env.dev ->but in github we are keeping this configuration file in .gitignore so the mapping will not happen herer
+
+so alternatively will create 1 secret file  
+
+********************Creation of Github workflow **********
+>>Root of the project create 1 folder as .github/workflows>>create playwright.yml file
+>>Description of playwright.yml--->
+type:choice
+options:
+    -QA
+    -DEV
+    -STAGE
+    Note- How to identify its dropdown by its type
+
+Note->Your machine mac/windows machine when script got run in CI bydeafult it will run on ubntu-latest
+
+
+>>*******************YML FIl-Cache concept********
+>>yml file there is code writtrn for installation of node js and dependency and reporting thigs
+so for every run we dont want installation should happen so what we are trying to do herer is
+
+keeping this one time activity in cache folder >>bcoz of which next time from cache things will pick and execution happens >which will lead less time in execution
+
+
+***********************Secret Keys*****************
+Github profile>>Settings>security and quality>>secrets and variables>>>>Actions
+
+Go to repository secrets>>New Repository Secrets
