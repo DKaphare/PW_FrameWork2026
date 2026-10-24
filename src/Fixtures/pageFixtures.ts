@@ -2,7 +2,7 @@ import { test as baseTest } from '@playwright/test';
 import { BasePage } from '../pages/pages/Basepage';
 import { LoginPage } from '../pages/pages/LoginPage';
 import { HomePage } from '../pages/pages/HomePage';
-import{SearchResult} from '../pages/pages/SearchResult';
+import{SearchResultPage} from '../pages/pages/SearchResultPage';
 import { ProductInfoPage } from '../pages/pages/ProductInfoPage';
 // import { CsvHelper } from '../utils/CsvHelper';
 
@@ -10,7 +10,7 @@ import { ProductInfoPage } from '../pages/pages/ProductInfoPage';
     BP: BasePage,
     LP: LoginPage,
     HP: HomePage,
-    SP: SearchResult,
+    SP: SearchResultPage,
     PP: ProductInfoPage,
     // testData: Record<string, string>[];
 };
@@ -36,7 +36,7 @@ export let test = baseTest.extend<pageFixtures>({
         await use(HP);
     },
     SP: async({page},use)=>{
-        let SP=new SearchResult(page);
+        let SP=new SearchResultPage(page);
         await use(SP);
     },
     PP:async({page},use)=>{

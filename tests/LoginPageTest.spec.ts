@@ -1,31 +1,33 @@
 import{ test,expect} from "@playwright/test";
 import { LoginPage } from '../src/pages/pages/LoginPage';
+import { error } from "node:console";
 
 let LP :LoginPage;
 
-
 test.beforeEach(async({page})=>{
-   await LP.gotoLoginPage();
+     LP=new LoginPage(page);
+    await LP.gotoLoginPage();
 //    await LP.gotoLoginPage(process.env.U!,process.env.P!);
 })
-test.describe("Valid and Invalid Cred Check",()=>{
+test.describe("Verify Test Case - Valid and Invalid Cred Check",()=>{
 
-    test('Title verify Test case',async({page})=>{
-    LP=new LoginPage(page);
+test('Title verify Test case',async({page})=>{
     // LP variable we have created nut not assigned the page
-    await LP.gotoLoginPage();
-   let TITLE=  await LP.getPageTitle();
-   console.log(TITLE);
+    let TITLE=  await LP.getPageTitle();
+    console.log(TITLE);
     expect(TITLE,'Account Login');
   
 });
 
 test('Valid Credntials Login App',async({page})=>{
-    await  LP.doLoginValid(process.env.U!,process.env.P!);
+    // MediaMetadata()
+    await  LP.doLogin(process.env.U!,process.env.P!);
 })
 
 test('Invalid Credentials',async({page})=>{
-    await LP.doLoginInvalid(process.env.U2!,process.env.P2!);
+    await LP.doLogin(process.env.U2!,process.env.P2!);
+  let errorText=  await LP.loginErrorCheck();
+    expect(error,'Warning: No match for E-Mail Address and/or Password.');
 })
 })
 

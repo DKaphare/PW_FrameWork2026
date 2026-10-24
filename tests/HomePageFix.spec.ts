@@ -1,8 +1,8 @@
-import{expect, test} from '../src/pages/Fixtures/pageFixtures';
+import{expect, test} from "../src/Fixtures/pageFixtures";
 
 test.beforeEach(async({LP})=>{
-   await LP.gotoLoginPage();
-   await LP.doLogin(process.env.USERNAME!,process.env.PASSWORD!);
+   await LP.gotoLoginPage(); 
+   await LP.doLogin(process.env.U!,process.env.P!);
    
 });
 test('Verify logout link',async({HP})=>{
@@ -13,11 +13,5 @@ test('headers info',async({HP})=>{
    let allHeaders=await HP.headersInfo();
    console.log("home page headers are",allHeaders);
    expect.soft(allHeaders).toHaveLength(4);
-//    expect.soft(allHeaders).toEqual([
-// 'My Account',
-// 'My Orders',
-// // 'My Affiliate Account',
 
-//    ]
-//    )
 });

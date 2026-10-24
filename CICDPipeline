@@ -1,0 +1,16 @@
+1.Create draft version of flow how pipeline shoudl work
+CI CD PL:
+dev(app code repo:java )+qa (automation test repo:pw TS)
+
+>>Build App + Unit test cases
+>>Deploy to dev env + Sanity test cases
+>>Deploy to qa env + Regression test cases
+>>Deploy to stage env + Sanity test cases
+>>Deploy to prod env + Smoke test cases
+>>Pipeline Summary
+
+
+2. Create a new yml file->Master CI CD pipeline
+https://github.com/naveenanimation20/OpenCartWebAPIAutomationFramework/blob/main/.github/workflows/master.yml
+
+take yml file from here
