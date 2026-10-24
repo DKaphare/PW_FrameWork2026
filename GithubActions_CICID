@@ -7,8 +7,10 @@ CI ? 2:0 mean if CI is true the it will run 2 times if it is false then it will 
 ********************Headless Mode For CI *******************
 >>alaways running case in CI CD always run headless mode
 headless:!process.env.CI ? false:true, >> here we are giving not condition so in local machine it will take false value and for CI condiotn it will take true value
-********ideally if condition is true ,after ternary operator whatever is there that will get run and if false next is getting run
-headless:!process.env.CI ? false:true,
+********ideally whenever we are giving ternary operator and if it fails due to not symbol it will go to 2nd condition and 2nd conditon is headless -true
+headless:!process.env.CI ? false:true, 
+and for local -local doesnt understand CI so it will be undefined now the operation is false but due to ! it will make true and once the opration is true it willgo to 1stpart
+and for CI condition- CI is present so condition is true then with ! it will make false -when condition is false it go to 2nd part
 
 *******************Reporting for CI ***********************
 reporter: process.env.CI

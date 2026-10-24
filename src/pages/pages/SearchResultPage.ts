@@ -1,7 +1,7 @@
 import {Locator,Page} from '@playwright/test';
 import { BasePage } from "./Basepage";
 
-export class SearchResult extends BasePage{
+export class SearchResultPage extends BasePage{
     private readonly searchResult:Locator;
     private readonly searchProductName:Locator;
     // private readonly resultantProduct:Locator;
@@ -22,7 +22,8 @@ export class SearchResult extends BasePage{
         console.log("Count of SearchResults are:"+C);
     }
     async selecttheProduct(productName:String){
-        await this.page.getByRole('link', { name: productName, exact: true }).first().click();
+        await this.page.getByRole('link', { name : `${productName}`, exact: true }).first().click();
+        // await this.page.getByRole('link', { name: 'iMac' })
        let ProductPage=await this.page.title();
        console.log(ProductPage);
     }
