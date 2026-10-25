@@ -1,6 +1,6 @@
 # ═══════════════════════════════════════════════════════════════
 # FILE: .github/workflows/master-pipeline.yml
-# REPO: naveenanimation20/OpenCartWebAPIAutomationFramework
+# REPO: DKaphare/PW_FrameWork2026
 # DEV REPO: jglick/simple-maven-project-with-tests
 # ═══════════════════════════════════════════════════════════════
 # "Run up to environment" — the dropdown controls how far the
@@ -183,7 +183,7 @@ jobs:
     needs: deploy-qa
     if: contains(fromJSON('["QA","stage","Prod"]'), github.event.inputs.environment)
     runs-on: ubuntu-latest
-    environment: dev
+    environment: QA
     steps:
       - name: Checkout QA repo
         uses: actions/checkout@v4
@@ -228,7 +228,7 @@ jobs:
           echo "========================================="
           npx playwright test --project=chromium --grep @regression
         env:
-          ENV: dev
+          ENV: qa
           BASE_URL: ${{ secrets.BASE_URL }}
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
@@ -286,7 +286,7 @@ jobs:
     needs: deploy-stage
     if: contains(fromJSON('["stage","Prod"]'), github.event.inputs.environment)
     runs-on: ubuntu-latest
-    environment: dev
+    environment: stage
     steps:
       - name: Checkout QA repo
         uses: actions/checkout@v4
@@ -331,7 +331,7 @@ jobs:
           echo "========================================="
           npx playwright test --project=chromium --grep @smoke
         env:
-          ENV: dev
+          ENV: stage
           BASE_URL: ${{ secrets.BASE_URL }}
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
@@ -380,7 +380,7 @@ jobs:
     needs: sanity-stage
     if: github.event.inputs.environment == 'Prod'
     runs-on: ubuntu-latest
-    environment: dev
+    environment: Prod
     steps:
       - name: Deploy to PROD
         run: echo "Deployed to PROD ✅"
@@ -390,7 +390,7 @@ jobs:
     needs: deploy-prod
     if: github.event.inputs.environment == 'Prod'
     runs-on: ubuntu-latest
-    environment: dev
+    environment: Prod
     steps:
       - name: Checkout QA repo
         uses: actions/checkout@v4
@@ -435,7 +435,7 @@ jobs:
           echo "========================================="
           npx playwright test --project=chromium --grep @smoke
         env:
-          ENV: dev
+          ENV: prod
           BASE_URL: ${{ secrets.BASE_URL }}
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
