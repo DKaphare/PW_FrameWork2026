@@ -48,3 +48,5 @@ severity and priority those options
   caan check in   "reporting-labs": "^0.6.21"
   2.Tto create reporting labs config file
   npx reporting-labs init
+  3.Was getting error in  ReportingLabs sentence from playwright.config.ts
+ >>add this line >> import reportingLabs from './reporting-labs.config';

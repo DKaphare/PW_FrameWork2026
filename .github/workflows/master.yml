@@ -43,7 +43,7 @@ jobs:
           repository: jglick/simple-maven-project-with-tests
 
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: '17'
@@ -289,12 +289,12 @@ jobs:
     environment: stage
     steps:
       - name: Checkout QA repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: DKaphare/PW_FrameWork2026
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: 'npm'

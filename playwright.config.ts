@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import reportingLabs from './reporting-labs.config';
 
 /**
  * Read environment variables from file.
@@ -63,8 +64,8 @@ export default defineConfig({
     ["allure-playwright",{
       outputFolder:"allure-results",
       suitTitle:true,
-    }]
-    // ['reporting-labs',reportingLabs]
+    }],
+    ['reporting-labs',reportingLabs]
 
   ]
   :
