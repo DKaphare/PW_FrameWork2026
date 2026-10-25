@@ -11,7 +11,7 @@ test.beforeEach(async({page})=>{
 })
 test.describe("Verify Test Case - Valid and Invalid Cred Check",()=>{
 
-test('Title verify Test case',async({page})=>{
+test('@smoke Title verify Test case',async({page})=>{
     // LP variable we have created nut not assigned the page
     let TITLE=  await LP.getPageTitle();
     console.log(TITLE);
@@ -19,12 +19,12 @@ test('Title verify Test case',async({page})=>{
   
 });
 
-test('Valid Credntials Login App',async({page})=>{
+test('@smoke Valid Credntials Login App',async({page})=>{
     // MediaMetadata()
     await  LP.doLogin(process.env.U!,process.env.P!);
 })
 
-test('Invalid Credentials',async({page})=>{
+test('@smoke Invalid Credentials',async({page})=>{
     await LP.doLogin(process.env.U2!,process.env.P2!);
   let errorText=  await LP.loginErrorCheck();
     expect(error,'Warning: No match for E-Mail Address and/or Password.');

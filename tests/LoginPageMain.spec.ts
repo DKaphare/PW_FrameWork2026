@@ -37,7 +37,7 @@ for(let row of testExcelData){
 //DD_3: read JSON data directly fromn the JSON file and loop the test method row wise...
 let testJsonData=JSONHelper.readJson('src/testData/loginData.json');
 for(let row of testJsonData){
-   test('@sanity Login to app with JSON Data',async({LP})=>{
+   test('@smoke Login to app with JSON Data',async({LP})=>{
       expect(await LP.loginSuccessful);
    })
 }
