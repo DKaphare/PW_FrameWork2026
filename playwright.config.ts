@@ -24,11 +24,11 @@ const ENV = process.env.ENV || "dev";
 console.log('Running tests on Environment: ', ENV);
 
 
-// dotenv.config({ path: `config/.env.${ENV}` });
+   dotenv.config({ path: `config/.env.${ENV}` });
 
-dotenv.config({
-    path: path.resolve(process.cwd(), 'config', '.env.dev'),
-});
+// dotenv.config({
+//     path: path.resolve(process.cwd(), 'config', '.env.dev'),
+// });
 
 console.log(process.env.U);
 
