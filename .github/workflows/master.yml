@@ -1,6 +1,6 @@
 # ═══════════════════════════════════════════════════════════════
 # FILE: .github/workflows/master-pipeline.yml
-# REPO: naveenanimation20/OpenCartWebAPIAutomationFramework
+# REPO: DKaphare/PW_FrameWork2026
 # DEV REPO: jglick/simple-maven-project-with-tests
 # ═══════════════════════════════════════════════════════════════
 # "Run up to environment" — the dropdown controls how far the
@@ -85,7 +85,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: naveenanimation20/OpenCartWebAPIAutomationFramework
+          repository: DKaphare/PW_FrameWork2026
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -126,9 +126,9 @@ jobs:
           npx playwright test --project=chromium --grep @smoke
         env:
           ENV: dev
-          BASE_URL: ${{ secrets.BASE_URL }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PASSWORD: ${{ secrets.PASSWORD }}
+          BU: ${{ secrets.BU }}
+          U: ${{ secrets.U }}
+          P: ${{ secrets.P }}
           API_BASE_URL: ${{ secrets.API_BASE_URL }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
           OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
@@ -188,7 +188,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: naveenanimation20/OpenCartWebAPIAutomationFramework
+          repository: DKaphare/PW_FrameWork2026
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -291,7 +291,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: naveenanimation20/OpenCartWebAPIAutomationFramework
+          repository: DKaphare/PW_FrameWork2026
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -395,7 +395,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: naveenanimation20/OpenCartWebAPIAutomationFramework
+          repository: DKaphare/PW_FrameWork2026
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
