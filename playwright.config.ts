@@ -75,8 +75,8 @@ export default defineConfig({
     ["allure-playwright",{
       outputFolder:"allure-results",
       suitTitle:true,
-    }]
-    // ['reporting-labs',reportingLabs]
+    }],
+    ['reporting-labs',reportingLabs]
 
   ],
   
