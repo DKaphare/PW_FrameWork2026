@@ -1,6 +1,6 @@
 # ═══════════════════════════════════════════════════════════════
 # FILE: .github/workflows/master-pipeline.yml
-# REPO: DKaphare/PW_FrameWork2026
+# REPO: naveenanimation20/OpenCartWebAPIAutomationFramework
 # DEV REPO: jglick/simple-maven-project-with-tests
 # ═══════════════════════════════════════════════════════════════
 # "Run up to environment" — the dropdown controls how far the
@@ -43,7 +43,7 @@ jobs:
           repository: jglick/simple-maven-project-with-tests
 
       - name: Setup Java
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
@@ -85,7 +85,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: DKaphare/PW_FrameWork2026
+          repository: naveenanimation20/OpenCartWebAPIAutomationFramework
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -126,14 +126,14 @@ jobs:
           npx playwright test --project=chromium --grep @smoke
         env:
           ENV: dev
-          BASE_URL: ${{ secrets.BU }}
-          USERNAME: ${{ secrets.U }}
-          PASSWORD: ${{ secrets.P }}
-          # API_BASE_URL: ${{ secrets.API_BASE_URL }}
-          # API_TOKEN: ${{ secrets.API_TOKEN }}
-          # OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
-          # OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
-          # GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+          OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
+          OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
+          GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
 
       - name: Generate Allure Report
         if: always()
@@ -188,7 +188,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: DKaphare/PW_FrameWork2026
+          repository: naveenanimation20/OpenCartWebAPIAutomationFramework
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -229,14 +229,14 @@ jobs:
           npx playwright test --project=chromium --grep @regression
         env:
           ENV: qa
-          BASE_URL: ${{ secrets.BU }}
-          USERNAME: ${{ secrets.U }}
-          PASSWORD: ${{ secrets.P }}
-          # API_BASE_URL: ${{ secrets.API_BASE_URL }}
-          # API_TOKEN: ${{ secrets.API_TOKEN }}
-          # OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
-          # OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
-          # GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+          OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
+          OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
+          GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
 
       - name: Generate Allure Report
         if: always()
@@ -289,12 +289,12 @@ jobs:
     environment: stage
     steps:
       - name: Checkout QA repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
         with:
-          repository: DKaphare/PW_FrameWork2026
+          repository: naveenanimation20/OpenCartWebAPIAutomationFramework
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: 'npm'
@@ -332,14 +332,14 @@ jobs:
           npx playwright test --project=chromium --grep @smoke
         env:
           ENV: stage
-          BASE_URL: ${{ secrets.BU }}
-          USERNAME: ${{ secrets.U }}
-          PASSWORD: ${{ secrets.P }}
-          # API_BASE_URL: ${{ secrets.API_BASE_URL }}
-          # API_TOKEN: ${{ secrets.API_TOKEN }}
-          # OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
-          # OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
-          # GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+          OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
+          OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
+          GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
 
       - name: Generate Allure Report
         if: always()
@@ -395,7 +395,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: DKaphare/PW_FrameWork2026
+          repository: naveenanimation20/OpenCartWebAPIAutomationFramework
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -436,14 +436,14 @@ jobs:
           npx playwright test --project=chromium --grep @smoke
         env:
           ENV: prod
-          BASE_URL: ${{ secrets.BU }}
-          USERNAME: ${{ secrets.U }}
-          PASSWORD: ${{ secrets.P }}
-          # API_BASE_URL: ${{ secrets.API_BASE_URL }}
-          # API_TOKEN: ${{ secrets.API_TOKEN }}
-          # OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
-          # OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
-          # GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+          OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
+          OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
+          GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
 
       - name: Generate Allure Report
         if: always()
