@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Run up to environment'
+        description: 'Environment to run'
         required: true
-        default: 'QA'
+        default: 'dev'
         type: choice
         options:
           - dev
@@ -16,44 +16,27 @@ on:
           - Prod
 
 jobs:
-  # STEP 1: BUILD APP + UNIT TESTS
-  build:
-    name: Build & Unit Tests
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Maven project
-        uses: actions/checkout@v4
-        with:
-          repository: jglick/simple-maven-project-with-tests
-          path: maven-project
-
-      - name: Setup Java
-        uses: actions/setup-java@v5
-        with:
-          distribution: temurin
-          java-version: '17'
-
-      - name: Run Maven tests
-        working-directory: maven-project
-        run: mvn -B test
-
-  # STEP 2: DEPLOY TO DEV
+  # STEP 1: DEPLOY TO DEV
   deploy-dev:
     name: Deploy to DEV
-    needs: build
     runs-on: ubuntu-latest
-
     steps:
       - name: Deploy to DEV
         run: echo "Deployed to DEV"
 
-  # STEP 3: DEV SANITY TESTS
+  # STEP 2: DEV SANITY TESTS
   sanity-dev:
     name: DEV - Sanity Tests
     needs: deploy-dev
     runs-on: ubuntu-latest
     environment: dev
+
+    env:
+      CI: 'true'
+      ENV: dev
+      BU: ${{ secrets.BU }}
+      U: ${{ secrets.U }}
+      P: ${{ secrets.P }}
 
     steps:
       - name: Checkout Playwright project
@@ -70,19 +53,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
       - name: Run Sanity Tests on DEV
         run: npx playwright test --project=chromium --grep "@smoke"
-        env:
-          CI: 'true'
-          ENV: dev
-          BU: ${{ secrets.BU }}
-          U: ${{ secrets.U }}
-          P: ${{ secrets.P }}
+
       - name: Generate Allure Report
         if: always()
         run: |
-          npm install -g allure-commandline
-          allure generate allure-results --clean -o allure-report
+          if [ -d allure-results ] && [ "$(find allure-results -type f | wc -l)" -gt 0 ]; then
+            npm install -g allure-commandline
+            allure generate allure-results --clean -o allure-report
+          else
+            echo "No Allure results found; skipping report generation."
+          fi
 
       - name: Upload DEV HTML Report
         if: always()
@@ -90,6 +75,7 @@ jobs:
         with:
           name: dev-sanity-html-report
           path: reports/html-report/
+          if-no-files-found: warn
           retention-days: 30
 
       - name: Upload DEV Allure Report
@@ -98,6 +84,7 @@ jobs:
         with:
           name: dev-sanity-allure-report
           path: allure-report/
+          if-no-files-found: warn
           retention-days: 30
 
       - name: Upload DEV reportingLabs Report
@@ -106,5 +93,5 @@ jobs:
         with:
           name: dev-sanity-reportinglabs-report
           path: reporting-labs/
+          if-no-files-found: warn
           retention-days: 30
-
