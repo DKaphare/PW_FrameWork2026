@@ -63,4 +63,8 @@ Once App created select Incoming WebHooks
 4.On same page ->Add new  Webook to workspace ->select channel (ex:#qa-automation)
 5.On same page Copy webhook URl ->add as SLACK_WEBHOOK_URL secret in github
 
-SLACK_WEBHOOK_URL = https://hooks.slack.com/services/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
+
+
+
+*************Github Pages**********
+Github Settings>>Pages
