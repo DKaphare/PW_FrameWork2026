@@ -11,7 +11,7 @@ dev(app code repo:java )+qa (automation test repo:pw TS)
 
 
 2. Create a new yml file->Master CI CD pipeline
-https://github.com/naveenanimation20/OpenCartWebAPIAutomationFramework/blob/main/.github/workflows/master.yml
+
 
 take yml file from here
 copy in github/actions folder->push code to git 
