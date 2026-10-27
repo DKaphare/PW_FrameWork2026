@@ -38,12 +38,12 @@ console.log('API base URL',process.env.API_BASE_URL);
 console.log('API Token loaded:',
     Boolean(process.env.API_TOKEN));
 ///to checkconfig isue
-const result = dotenv.config({
-    path: `config/.env.${ENV}`
-});
+// const result = dotenv.config({
+//     path: `config/.env.${ENV}`
+// });
 
-console.log('File parsed:', result.parsed);
-console.log('Parsing error:', result.error);
+// console.log('File parsed:', result.parsed);
+// console.log('Parsing error:', result.error);
 
 export default defineConfig({
   testDir: './tests',
