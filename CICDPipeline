@@ -18,3 +18,49 @@ copy in github/actions folder->push code to git
 Github website->actions tab you can see Master CI/CD pipeline 
 
 3.Tag the test cases according to their type @sanity @smoke
+
+
+=========*********** Email Notification********
+
+Steps:
+1. Take e2e.yml file froom Naveen github repository
+Note- U cant use your personal email id, so naveen sir have created 1 dummy SMTP server
+
+
+2.Go to github account->Secret and variables->Actions->new secret
+EMAIL_USERNAME= training@naveenautomationlabs.com
+EMAIL_PASSWORD= Automation@123@321
+
+name: Send Email with Dashboard
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.hostinger.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "🎭 CI/CD Pipeline [${{ github.event.inputs.environment }}] — ${{ steps.status.outputs.overall }} — ${{ github.ref_name }}"
+          to: naveenanimation20@gmail.com,training@naveenautomationlabs.com
+          from: "CI Bot <${{ secrets.EMAIL_USERNAME }}>"
+          html_body: file://dashboard.html
+
+
+********************** Email Notification*******************
+
+
+SLACK_WEBHOOK_URL 
+-go to slack api and create Token from that
+
+1.GO to https://api.slack.com/apps -Create new apps - from scrathc
+Create an app>> Blank App>>contniue
+
+Give app Name-> CI_BOT
+WorkSpace->
+2. App name : PW CI Bot -Select Workspace >>next next
+Once App created select Incoming WebHooks
+
+3.Incoming webhooks -Activate ON ->Mandatory
+4.On same page ->Add new  Webook to workspace ->select channel (ex:#qa-automation)
+5.On same page Copy webhook URl ->add as SLACK_WEBHOOK_URL secret in github
+
+SLACK_WEBHOOK_URL = https://hooks.slack.com/services/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

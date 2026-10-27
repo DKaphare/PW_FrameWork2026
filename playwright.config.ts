@@ -37,7 +37,7 @@ console.log('Running tests on Environment: ', ENV);
 // console.log('API base URL',process.env.API_BASE_URL);
 // console.log('API Token loaded:',
     // Boolean(process.env.API_TOKEN));
-///to checkconfig isue
+///to checkconfig isue-Issue in pipeline
 // const result = dotenv.config({
 //     path: `config/.env.${ENV}`
 // });
