@@ -1,0 +1,2 @@
+https://naveenautomationlabs.com/opencart/index.php?route=account/login
+[ 'My Account', 'My Orders', 'My Affiliate Account', 'Newsletter' ]
