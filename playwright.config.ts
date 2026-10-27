@@ -30,12 +30,12 @@ console.log('Running tests on Environment: ', ENV);
 //     path: path.resolve(process.cwd(), 'config', '.env.dev'),
 // });
 
-console.log(process.env.U);
+// console.log(process.env.U);
 
-console.log(process.env.P);
+// console.log(process.env.P);
 
-console.log('API base URL',process.env.API_BASE_URL);
-console.log('API Token loaded:',
+// console.log('API base URL',process.env.API_BASE_URL);
+// console.log('API Token loaded:',
     Boolean(process.env.API_TOKEN));
 ///to checkconfig isue
 // const result = dotenv.config({
@@ -84,7 +84,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL:process.env.BU,
+    baseURL:process.env.BASE_URL,
    
     headless:!process.env.CI ? false:true,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */

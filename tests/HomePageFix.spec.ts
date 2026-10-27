@@ -2,7 +2,7 @@ import{expect, test} from "../src/Fixtures/pageFixtures";
 
 test.beforeEach(async({LP})=>{
    await LP.gotoLoginPage(); 
-   await LP.doLogin(process.env.U!,process.env.P!);
+   await LP.doLogin(process.env.USERNAME!,process.env.PASSWORD!);
    
 });
 test('@smoke Verify logout link',async({HP})=>{
