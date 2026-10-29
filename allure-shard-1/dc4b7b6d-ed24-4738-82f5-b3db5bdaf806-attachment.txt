@@ -1,0 +1,74 @@
+[
+  {
+    id: 8686801,
+    name: 'Chiranjeeve Rana',
+    email: 'chiranjeeve_rana@hermann.test',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8686104,
+    name: 'Bhishma Singh',
+    email: 'bhishma_singh@larkin-schamberger.example',
+    gender: 'male',
+    status: 'inactive'
+  },
+  {
+    id: 8686100,
+    name: 'Agneya Panicker',
+    email: 'panicker_agneya@bartell.example',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8686099,
+    name: 'Subhashini Ahluwalia',
+    email: 'ahluwalia_subhashini@hand.example',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8686097,
+    name: 'Suman Verma',
+    email: 'suman_verma@ondricka.test',
+    gender: 'male',
+    status: 'inactive'
+  },
+  {
+    id: 8686096,
+    name: 'Balagovind Kapoor',
+    email: 'balagovind_kapoor@powlowski.test',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8686095,
+    name: 'Ameyatma Nehru',
+    email: 'ameyatma_nehru@bahringer.test',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8686094,
+    name: 'Aagneya Varman',
+    email: 'aagneya_varman@macejkovic-stroman.example',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8686093,
+    name: 'Nirbhay Patil',
+    email: 'patil_nirbhay@white-dare.example',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8686092,
+    name: 'Acharyanandana Desai',
+    email: 'desai_acharyanandana@cremin-bechtelar.example',
+    gender: 'male',
+    status: 'active'
+  }
+]
+[Function: status]
+[Function: statusText]

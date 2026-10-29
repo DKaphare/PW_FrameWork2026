@@ -1,1 +1,0 @@
-{"attachments":[],"errors":[{"message":"beforeEach hook failed: TypeError: Cannot read properties of undefined (reading 'gotoLoginPage')","trace":"TypeError: Cannot read properties of undefined (reading 'gotoLoginPage')\n    at C:\\Users\\HP\\OpenCartPWFrameWorkE2E\\tests\\LoginPageTest.spec.ts:8:13","status":"broken","timestamp":1792657764938}]}
