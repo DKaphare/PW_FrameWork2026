@@ -1,8 +1,0 @@
-{
-  id: 8690349,
-  name: 'Sharu Dipali Prashant P Alhat',
-  email: 'sharu1234@gmail.com',
-  gender: 'female',
-  status: 'active'
-} 201
-create new userID is 8690349
