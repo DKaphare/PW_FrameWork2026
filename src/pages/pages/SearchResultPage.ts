@@ -1,5 +1,5 @@
 import {Locator,Page} from '@playwright/test';
-import { BasePage } from "./Basepage";
+import { BasePage } from "./BasePage";
 
 export class SearchResultPage extends BasePage{
     private readonly searchResult:Locator;
@@ -18,8 +18,8 @@ export class SearchResultPage extends BasePage{
     async getProductSearchResult(Name:string){
         await this.searchProductName.fill(Name);
         await this.searchIcon.click();
-        let C= await this.searchResult.count();
-        console.log("Count of SearchResults are:"+C);
+       return await this.searchResult.count();
+        // console.log("Count of SearchResults are:"+C);
     }
     async selecttheProduct(productName:String){
         await this.page.getByRole('link', { name : `${productName}`, exact: true }).first().click();

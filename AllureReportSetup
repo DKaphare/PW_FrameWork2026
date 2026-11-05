@@ -1,3 +1,4 @@
+/*
 Allure report setup--
 1.Install Allure report
 npm install --save-dev allure-playwright allure-commandline
@@ -42,11 +43,12 @@ import { fileURLToPath } from "node:url"
 Need above line to get  await allure.severity("Very Low");
 severity and priority those options
 
-  ****************//Reporting-Labs Report///****************
+  ////////////Reporting-Labs Report///****************
+  
   Reporting Labs
   1.To install->npm i -D reporting-labs 
   caan check in   "reporting-labs": "^0.6.21"
-  2.Tto create reporting labs config file
+  2.To create reporting labs config file
   npx reporting-labs init
   3.Was getting error in  ReportingLabs sentence from playwright.config.ts
  >>add this line >> import reportingLabs from './reporting-labs.config';

@@ -5,10 +5,11 @@ import { SearchResultPage } from "../src/pages/pages/SearchResultPage";
 
 test.beforeEach(async({LP})=>{
     await LP.gotoLoginPage();
-    await LP.doLogin(process.env.USERNAME!,process.env.PASSWORD!);
+    await LP.doLogin(process.env.USERNAME1!,process.env.PASSWORD1!);
 });
 
-test.skip('Flow of Search Functionality',async({SP})=>{
+test('Flow of Search Functionality',async({SP})=>{
+    //  metadata({ priority: 'P2', severity: 'major', owner: 'Dipali',});
    let resultCount= await SP.getProductSearchResult(process.env.searchProductName!);
      expect(resultCount).toBe(4);
     // await SP.selecttheProduct();
@@ -16,7 +17,7 @@ test.skip('Flow of Search Functionality',async({SP})=>{
 
 let searchCSV=csvHelper.readCsv('src/testData/searchData.csv')
 for(let row of searchCSV){
-test(`@smoke Verify user is able to land on the Home Page- ${row.searchproductName},${row.selectProduct},${row.AssertionProduct}`,async({HP,SP,page})=>{
+test.skip(`@smoke Verify user is able to land on the Home Page- ${row.searchproductName},${row.selectProduct},${row.AssertionProduct}`,async({HP,SP,page})=>{
     // await SP.getProductSearchResult(process.env.searchProductName!);->coming from config- env.dev
     await SP.getProductSearchResult(row.searchproductName);
     await SP.selecttheProduct(row.selectProduct);
