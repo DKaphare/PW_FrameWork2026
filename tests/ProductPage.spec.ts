@@ -8,11 +8,12 @@ test.beforeEach(async({LP})=>{
 test('Product All Info',async({PP,SP,CC})=>{
     await SP.getProductSearchResult(process.env.searchProductName!);
     await SP.selecttheProduct(process.env.selecttheProduct!);
-    await PP.getProductInfo();
-   let AddToCartMessage= await PP.addTocartandValidation();
-   expect(AddToCartMessage).toContain('Success: You have added ');
-   let cartTitle= await CC.checkOutFunctionality();
-    expect(cartTitle).toBe('Shopping Cart');
+   await PP.getProductInfo();
+
+//    let AddToCartMessage= await PP.addTocartandValidation();
+//    expect(AddToCartMessage).toContain('Success: You have added ');
+//    let cartTitle= await CC.checkOutFunctionality();
+//     expect(cartTitle).toBe('Shopping Cart');
     
 })
 

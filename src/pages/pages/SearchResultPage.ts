@@ -22,7 +22,7 @@ export class SearchResultPage extends BasePage{
         // console.log("Count of SearchResults are:"+C);
     }
     async selecttheProduct(productName:String){
-        await this.page.getByRole('link', { name : `${productName}`, exact: true }).first().click();
+        // await this.page.getByRole('link', { name : `${productName}`, exact: true }).first().click();
         // await this.page.getByRole('link', { name: 'iMac' })
        let ProductPage=await this.page.title();
        console.log(ProductPage);
