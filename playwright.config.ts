@@ -22,12 +22,12 @@ console.log('API base URL',process.env.API_BASE_URL);
 console.log('API Token loaded:',
     Boolean(process.env.API_TOKEN));
 // /to checkconfig isue-Issue in pipeline
-const result = dotenv.config({
-    path: `config/.env.${ENV}`
-});
+// const result = dotenv.config({
+//     path: `config/.env.${ENV}`
+// });
 
-console.log('File parsed:', result.parsed);
-console.log('Parsing error:', result.error);
+// console.log('File parsed:', result.parsed);
+// console.log('Parsing error:', result.error);
 
 export default defineConfig({
   testDir: './tests',
@@ -40,7 +40,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 
+  reporter: process.env.CI ?
   [
     ['html',{outputFolder:"reports/html-report",open:'never'}],
     // ["allure-playwright",{
@@ -48,8 +48,16 @@ export default defineConfig({
     //   suitTitle:true,
     // }],
     ['reporting-labs',reportingLabs]
+  ]
+  :
+    [
+    ['html',{outputFolder:"reports/html-report",open:'never'}],
+    // ["allure-playwright",{
+    //   outputFolder:"allure-results",
+    //   suitTitle:true,
+    // }],
+    ['reporting-labs',reportingLabs]
   ],
- 
   use: {
     baseURL: process.env.BASE_URL,
     headless: false,
