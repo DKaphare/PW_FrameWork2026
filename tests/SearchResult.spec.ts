@@ -8,7 +8,7 @@ test.beforeEach(async({LP})=>{
     await LP.doLogin(process.env.USERNAME1!,process.env.PASSWORD1!);
 });
 
-test('Flow of Search Functionality',async({SP})=>{
+test('@smoke Flow of Search Functionality',async({SP})=>{
     //  metadata({ priority: 'P2', severity: 'major', owner: 'Dipali',});
    let resultCount= await SP.getProductSearchResult(process.env.searchProductName!);
      expect(resultCount).toBe(4);

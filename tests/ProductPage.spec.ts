@@ -5,7 +5,7 @@ test.beforeEach(async({LP})=>{
     await LP.doLogin(process.env.USERNAME1!,process.env.PASSWORD1!);
 })
 
-test('Product All Info',async({PP,SP,CC})=>{
+test('@smoke Product All Info',async({PP,SP,CC})=>{
     await SP.getProductSearchResult(process.env.searchProductName!);
     await SP.selecttheProduct(process.env.selecttheProduct!);
    await PP.getProductInfo();
