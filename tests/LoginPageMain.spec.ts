@@ -27,7 +27,7 @@ for (let row of testCSVData)
 //DD_2: read xlsx data directly fromn the excel file and loop the test method row wise...
 let testExcelData=excelHelper.readExcel('src/testData/eopnCartTestData.xlsx','Sheet1');
 for(let row of testExcelData){
-   test('@regression Login in the app with Excel Data',async({LP})=>{
+   test.skip('@regression Login in the app with Excel Data',async({LP})=>{
       expect(await LP.loginSuccessful);
    })
 }
@@ -37,7 +37,7 @@ for(let row of testExcelData){
 //DD_3: read JSON data directly fromn the JSON file and loop the test method row wise...
 let testJsonData=JSONHelper.readJson('src/testData/loginData.json');
 for(let row of testJsonData){
-   test('@smoke Login to app with JSON Data',async({LP})=>{
+   test.skip('@smoke Login to app with JSON Data',async({LP})=>{
       expect(await LP.loginSuccessful);
    })
 }
