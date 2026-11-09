@@ -9,7 +9,7 @@ import path from 'path';
 const ENV = process.env.ENV || "dev";
 console.log('Running tests on Environment: ', ENV);
 dotenv.config({ path: `config/.env.${ENV}` });
-
+/*Commneting to check pipleinr
 dotenv.config({
     path: path.resolve(process.cwd(), 'config', '.env.dev'),
 });
@@ -22,13 +22,13 @@ console.log('API base URL',process.env.API_BASE_URL);
 console.log('API Token loaded:',
     Boolean(process.env.API_TOKEN));
 // /to checkconfig isue-Issue in pipeline
-// const result = dotenv.config({
+// const result = dotenv.config({s
 //     path: `config/.env.${ENV}`
 // });
 
 // console.log('File parsed:', result.parsed);
 // console.log('Parsing error:', result.error);
-
+*/
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
@@ -42,26 +42,36 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: process.env.CI ?
   [
+       ["blob"],
+    ['list'],
     ['html',{outputFolder:"reports/html-report",open:'never'}],
-    // ["allure-playwright",{
-    //   outputFolder:"allure-results",
-    //   suitTitle:true,
-    // }],
+    ["allure-playwright",{
+      outputFolder:"allure-results",
+      suitTitle:true,
+    }],
     ['reporting-labs',reportingLabs]
+
   ]
   :
-    [
+  [
+     ["blob", { outputDir: "blob-report" }],
+    ['list'],
     ['html',{outputFolder:"reports/html-report",open:'never'}],
-    // ["allure-playwright",{
-    //   outputFolder:"allure-results",
-    //   suitTitle:true,
-    // }],
+    ["allure-playwright",{
+      outputFolder:"allure-results",
+      suitTitle:true,
+    }],
     ['reporting-labs',reportingLabs]
+
   ],
+  
+  
   use: {
     baseURL: process.env.BASE_URL,
-    headless: false,
+    headless:!process.env.CI ? false:true,
     trace: 'on-first-retry',
+    screenshot:'on',
+    video:'on'
   },
 
   /* Configure projects for major browsers */
