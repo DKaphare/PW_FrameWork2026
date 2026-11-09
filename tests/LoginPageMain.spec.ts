@@ -5,7 +5,7 @@ import { JSONHelper } from "../src/utils/JSONHelper";
 
 test.beforeEach(async({LP})=>{
     await LP.gotoLoginPage();
-   //  await LP.doLoginValid(process.env.U!,process.env.P!);
+   await LP.doLogin(process.env.USERNAME1!,process.env.PASSWORD1!);
 })
 
 //pros:
