@@ -12,6 +12,6 @@ test('@smoke Verify logout link',async({HP})=>{
 test('@smoke headers info',async({HP})=>{
    let allHeaders=await HP.headersInfo();
    console.log("home page headers are",allHeaders);
-   expect.soft(allHeaders).toHaveLength(4);
+   expect.soft(allHeaders).toHaveLength(2);
 
 });

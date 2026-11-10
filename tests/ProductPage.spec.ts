@@ -8,7 +8,7 @@ test.beforeEach(async({LP})=>{
 test('@smoke Product All Info',async({PP,SP,CC})=>{
     await SP.getProductSearchResult(process.env.searchProductName!);
     await SP.selecttheProduct(process.env.selecttheProduct!);
-   await PP.getProductInfo();
+    await PP.getProductInfo();
 
 //    let AddToCartMessage= await PP.addTocartandValidation();
 //    expect(AddToCartMessage).toContain('Success: You have added ');

@@ -1,2 +1,7 @@
 Q-> In username field name was getting as HP whereas it should take actual username Sharu@gmail.com(.env.dev file)
 R->It was taking computer username HP so i renamed Username field to username1
+
+
+Q- Getting error while fetching secret variables
+R->I changed variable from username ->username1 in Github->Setting->Secret Variables
+so that need to be change in Code(LoginPage.spec.ts) and in yml file as well(i forgot to change here)
