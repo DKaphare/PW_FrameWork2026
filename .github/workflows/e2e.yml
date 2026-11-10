@@ -129,6 +129,9 @@ jobs:
           BASE_URL: ${{ secrets.BASE_URL }}
           USERNAME1: ${{ secrets.USERNAME }}
           PASSWORD1: ${{ secrets.PASSWORD }}
+          SEARCHPRODUCTNAME: ${{secrets.SEARCHPRODUCTNAME}}
+          SELECTTHEPRODUCT: ${{secrets.SELECTTHEPRODUCT}}
+          RESULTANTPRODUCT: ${{secrets.RESULTANTPRODUCT}}
           API_BASE_URL: ${{ secrets.API_BASE_URL }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
           OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
